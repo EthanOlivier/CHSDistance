@@ -63,3 +63,16 @@ Uses Rails 8's default JavaScript setup:
 - Configured for containerized deployment with Docker
 - Kamal deployment configuration available
 - Thruster for asset acceleration in production
+
+## Styling Guidelines
+
+### CSS Framework Preference
+- **ALWAYS use Tailwind CSS** for styling instead of writing custom CSS
+- Avoid creating custom CSS files whenever possible
+- Use Tailwind utility classes for all styling needs
+- Only write custom CSS as a last resort when Tailwind cannot achieve the desired design
+
+### Tailwind CSS Setup
+- Use `tailwindcss-rails` gem for Rails integration
+- Configure Tailwind to work with Rails asset pipeline
+- Utilize Tailwind's utility-first approach for rapid development

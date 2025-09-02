@@ -1,0 +1,31 @@
+<div class="flex justify-between h-screen p-5">
+  <div class="flex flex-shrink-0 flex items-center">
+    <%= link_to calendar_path(week_offset: @week_offset - 1), class: "inline-flex items-center justify-center w-10 h-10 border-2 border-gray-300 rounded-full bg-white text-gray-600 hover:bg-gray-50 hover:border-blue-500 hover:text-blue-500 transition-all duration-200 hover:scale-105 text-xl font-bold" do %>
+      <span>‹</span>
+    <% end %>
+  </div>
+
+  <div class="flex flex-1 mx-5">
+    <% @week_days.each_with_index do |day, index| %>
+      <div class="rounded-lg flex-1 text-center px-4 <%= 'border-r-2 border-gray-200' unless index == 6 %>">
+        <% if day[:is_today] %>
+          <div class="py-2 rounded-sm" style="background-color: #e03637;">
+            <div class="text-lg font-semibold text-white mb-1 capitalize"><%= day[:day_name] %></div>
+            <div class="text-sm text-white font-medium"><%= day[:month_name] %> <%= day[:day_number] %></div>
+          </div>
+        <% else %>
+          <div class="py-2">
+            <div class="text-lg font-semibold text-gray-700 mb-1 capitalize"><%= day[:day_name] %></div>
+            <div class="text-sm text-gray-600 font-medium"><%= day[:month_name] %> <%= day[:day_number] %></div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="flex flex-shrink-0 items-center">
+    <%= link_to calendar_path(week_offset: @week_offset + 1), class: "inline-flex items-center justify-center w-10 h-10 border-2 border-gray-300 rounded-full bg-white text-gray-600 hover:bg-gray-50 hover:border-blue-500 hover:text-blue-500 transition-all duration-200 hover:scale-105 text-xl font-bold" do %>
+      <span>›</span>
+    <% end %>
+  </div>
+</div>
