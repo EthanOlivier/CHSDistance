@@ -1,0 +1,21 @@
+<% content_for :title, "Profiles" %>
+
+<div class="max-w-3xl mx-auto py-10 px-6">
+  <h1 class="text-2xl font-bold text-gray-800 mb-6">Select a Profile</h1>
+
+  <% if @current_profile.present? %>
+    <div class="mb-6 p-4 bg-green-50 border border-green-200 rounded text-green-800">
+      Current profile: <span class="font-semibold"><%= @current_profile %></span>
+    </div>
+  <% end %>
+
+  <div class="grid grid-cols-1 gap-4">
+    <% @profiles.each do |name| %>
+      <div class="p-4 border rounded-lg bg-white flex items-center justify-between">
+        <div class="text-gray-800 font-medium"><%= name %></div>
+        <%= button_to "Use", select_profile_path(name: name), method: :post, class: "px-3 py-1.5 rounded bg-blue-600 text-white hover:bg-blue-700 transition" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+

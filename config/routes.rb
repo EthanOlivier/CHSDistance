@@ -12,4 +12,8 @@ Rails.application.routes.draw do
   # Calendar routes
   get "calendar", to: "calendar#index"
   root "calendar#index"
+
+  # Profiles routes
+  resources :profiles, only: [ :index ]
+  post "profiles/select", to: "profiles#select", as: :select_profile
 end

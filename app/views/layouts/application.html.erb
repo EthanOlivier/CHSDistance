@@ -23,6 +23,11 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="min-h-screen">
+      <%= render "shared/sidebar" %>
+      <main class="ml-64">
+        <%= yield %>
+      </main>
+    </div>
   </body>
 </html>
